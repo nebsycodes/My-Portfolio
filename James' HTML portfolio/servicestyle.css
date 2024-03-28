@@ -1,0 +1,335 @@
+body {
+    background-color: rgb(41, 41, 107);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20pt;
+    color: white;
+}
+
+.container {  display: grid;
+    
+    grid-template-columns: 0fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "Header2 Header Header"
+      "Grabber Grabber Information"
+      "Grabber Grabber Information";
+  }
+/* header styles here */
+.Header { 
+    background-color: rgb(41, 41, 107);
+    grid-area: Header; 
+    height: 200px;
+    text-align: left;
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+    height: 50%;
+    display:inline;
+}
+
+ .Header p {
+  background-color: transparent;
+  border: none;
+  font-family: Helvetica;
+  padding: 1px 1px;
+  margin-right: 2%;
+  margin-left: 2%;
+  text-align: left;
+  display: inline-block;
+  color: white;
+  font-size: 15pt;
+}
+
+.wave {
+  height: 20px;
+  width: 20px;
+  background-color: #dbedff;
+  display: inline-block;
+    aspect-ratio: 1;
+    clip-path: polygon(100% 50%,50% 100%,0% 50%,50% 0%);
+  }
+/* main image eye attention styles here */
+  .Grabber { 
+    grid-area: Grabber; 
+    background-color: rgb(41, 41, 107);
+    margin-left: 5%;
+    padding: 5px 10px;
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* information styles here */
+  .Information { 
+    grid-area: Information; 
+    background-color: rgb(41, 41, 107);
+    width: 75%;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+  position: relative;
+  border: 0;
+  transition: 0.5s;
+  z-index: 1;
+  min-width: 10rem;
+  padding: 1rem 1rem;
+  font-size: 0.875rem;
+  line-height: 1;
+  font-family: Helvetica;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--black);
+  color: var(--white);
+
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+
+  &.--glow {
+    &:hover {
+      background: var(--primary);
+      box-shadow: 0 0 5px var(--primary), 0 0 25px var(--primary);
+    }
+  }
+  &.--pulse {
+    &:hover {
+      animation: pulse 1.5s infinite;
+    }
+  }
+  &.--door {
+    &:hover {
+      box-shadow: inset -7.5rem 0 0 0 var(--primary),
+        inset 7.5rem 0 0 0 var(--primary);
+    }
+  }
+  &.--shutter {
+    &:after {
+      height: 0;
+      width: 100%;
+      left: 0;
+      background: var(--primary);
+      transition: 0.5s;
+    }
+    &.--down {
+      &:after {
+        top: 0;
+      }
+    }
+    &.--up {
+      &:after {
+        bottom: 0;
+      }
+    }
+    &:hover {
+      &:after {
+        height: 100%;
+      }
+    }
+  }
+  &.--double {
+    &:hover {
+      box-shadow: 5px 5px 0 var(--primary);
+    }
+  }
+  &.--shine {
+    overflow: hidden;
+    &:after {
+      height: 100%;
+      width: 0;
+      left: -25%;
+      top: 0;
+      background: var(--primary);
+      transform: skew(50deg);
+      transform-origin: top left;
+      transition: 0.5s;
+    }
+    &:hover {
+      &:after {
+        width: 125%;
+      }
+    }
+  }
+  &.--move {
+    &:after {
+      height: 100%;
+      width: 0;
+      top: 0;
+      background: var(--primary);
+      transition: 0.5s;
+    }
+    &.--left {
+      &:after {
+        left: 0;
+      }
+    }
+    &.--right {
+      &:after {
+        right: 0;
+      }
+    }
+    &.--left-right {
+      &:after {
+        right: 0;
+      }
+      &:hover {
+        &:after {
+          right: auto;
+          left: 0;
+        }
+      }
+    }
+    &.--right-left {
+      &:after {
+        left: 0;
+      }
+      &:hover {
+        &:after {
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+    &:hover {
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+  &.--border {
+    border: 2px solid transparent;
+    &:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+  }
+  &.--draw-border {
+    &:before,
+    &:after {
+      box-sizing: inherit;
+      border: 2px solid transparent;
+      width: 0;
+      height: 0;
+    }
+    
+    &:before {
+      top: 0;
+      left: 0;
+    }
+    
+    &:after {
+      bottom: 0;
+      right: 0;
+    }
+    &:hover {
+      color: var(--primary);
+      background: transparent;
+
+      &:before,
+      &:after {
+        width: 100%;
+        height: 100%;
+      }
+      &:before {
+        border-top-color: var(--primary);
+        border-right-color: var(--primary);
+        transition: width 0.25s ease-out, height 0.25s ease-out 0.25s; 
+      }
+      &:after {
+        border-bottom-color: var(--primary);
+        border-left-color: var(--primary);
+        transition: border-color 0s ease-out 0.5s,
+          width 0.25s ease-out 0.5s,
+          height 0.25s ease-out 0.75s; 
+      }
+    }
+  }
+  &.--underline {
+    &:after {
+      box-sizing: inherit;
+      width: 0;
+      height: 100%;
+      border-bottom: 4px solid var(--primary);
+      bottom: 0;
+      transition: 0.5s;
+    }
+    &.--left {
+      &:after {
+        left: 0;
+      }
+    }
+    &.--right {
+      &:after {
+        right: 0;
+      }
+    }
+    &:hover {
+      &:after {
+        width: 100%;
+      }
+    }
+    &.--center {
+      &:after {
+        right: 50%;
+        left: 50%;
+      }
+      &:hover {
+        &:after {
+          right: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 var(--black);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--black);
+  }
+  100% {
+    box-shadow: 0 0 0 var(--black);
+  }
+}
+
+
+:root {
+  --white: #ffffff;
+  --primary: #ffffff;
+}
+&:before,
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+  }
+ 
+  .button:before, .button:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+}
+  .button.--underline:after {
+    box-sizing: inherit;
+    width: 0;
+    height: 100%;
+    border-bottom: 4px solid var(--primary);
+    bottom: 0;
+    transition: 0.5s;
+}
+
+.button:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+}

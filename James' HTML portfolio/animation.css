@@ -7,9 +7,35 @@ body {
     grid-template-rows: auto 1fr 1fr 1fr; /* Header and three grids below */
     gap: 10px; /* Adjusted gap between rows */
     height: 100vh;
-    margin: 0;
+    margin: 100px;
     padding: 10px;
   }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto; /* Adjust as needed */
+    padding: 10px;
+}
+
+.grid-item {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid black; /* delete later for better visibility */
+    position: relative;
+}
+
+.cube {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
 
 .layout {
     width: 1920px;
@@ -83,14 +109,14 @@ body {
     box-shadow: none;
   }
   
-  /* ... (Your existing CSS code) ... */
+
 
 body.dark-mode {
-    background-color: #28292c; /* Set your dark mode background color here */
-    color: #ffffff; /* Set your dark mode text color here */
+    background-color: #28292c; 
+    color: #ffffff; 
 }
 
-/* ... (Rest of your CSS) ... */
+
 
 #checkbox {
   display: none;
@@ -109,44 +135,11 @@ body.dark-mode {
   transition-duration: .3s;
 }
 
-.bars {
-  width: 100%;
-  height: 4px;
-  background-color: rgb(253, 255, 243);
-  border-radius: 5px;
-  transition-duration: .3s;
-}
 
-/* #checkbox:checked + .toggle .bars {
-  margin-left: 13px;
-} */
-
-#checkbox:checked + .toggle #bar2 {
-  transform: translateY(14px) rotate(60deg);
-  margin-left: 0;
-  transform-origin: right;
-  transition-duration: .3s;
-  z-index: 2;
-}
-
-#checkbox:checked + .toggle #bar1 {
-  transform: translateY(28px) rotate(-60deg);
-  transition-duration: .3s;
-  transform-origin: left;
-  z-index: 1;
-}
-
-#checkbox:checked + .toggle {
-  transform: rotate(-90deg);
-}
-/* #checkbox:checked + .toggle #bar3 {
-  transform: rotate(90deg);
-  transition-duration: .3s;
-  transform-origin:right;
-} */
 
 .checkbox-svg {
-  width: 24px; /* Set your desired width */
-  height: 24px; /* Set your desired height */
-  fill: #000; /* Set your desired fill color */
+  width: 24px; 
+  height: 24px; 
+  fill: #252525; 
 }
+

@@ -83,7 +83,13 @@ body {
   overflow: hidden;
 }
 
-.Button-6 {
+.Button-10 {
+  max-width: 600px; /* Adjust the max-width as needed */
+  margin: 0 auto; /* Center the button horizontally */
+  text-align: center; /* Center the button's content */
+}
+
+.Button-web {
   max-width: 600px; /* Adjust the max-width as needed */
   margin: 0 auto; /* Center the button horizontally */
   text-align: center; /* Center the button's content */
