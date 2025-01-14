@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pokemon.css">
+</head>
+
+<body>
+    <div class="lefttop">
+        <img src="pkmlogo.png"style="width: 450px;
+        height: 150px;">
+</div>
+    <section class="layout">
+        <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a class="active" href="#home" onclick="changeContent('Home')">Home</a>
+            <a href="#pokemonteam" onclick="changeContent('pokemonteam')">Build your Pokemon team</a>
+            <a href="#trainer" onclick="changeContent('trainer')">Make your own trainer</a>
+        </div>
+        <button class="openbtn" onclick="openNav()"> <img src="checkbox2.svg" alt="buttonpng" border="0"/> </button>  
+        </div>
+    </section>
+    <!-- Add any other body elements or scripts you need -->
+    <a href="mainpage.html" class="button" style=" z-index: 1;">
+        <h2 class="backtopf">
+            🏠︎
+        </h2>
+    </a>
+
+    <iframe class="left"
+    src="https://my.spline.design/untitled-8d929b41d936b4033502d303a5452928/"
+    frameborder="0"
+    width="100%"
+    height="1000px">
+</iframe>
+    <script>
+        function openNav() {
+          document.getElementById("mySidepanel").style.width = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidepanel").style.width = "0";
+        }
+
+        function changeContent(content) {
+            var chooseYourJediDiv = document.getElementById("chooseyourjedi");
+
+            if (content === 'Home') {
+                // Navigate to a new webpage
+                window.location.href = 'pokemon.html';
+            }
+            if (content === 'Build your Pokemon team') {
+                // Navigate to a new webpage
+                window.location.href = 'pokemonteam.html';
+            }
+            if (content === 'Make your own trainer') {
+                window.location.href = 'trainer.html'
+            }
+            else {
+                // Set other content
+                chooseYourJediDiv.innerHTML = `<p>${content} content goes here!</p>`;
+            }
+
+            closeNav(); // Close the sidebar after changing content (optional)
+        }
+        </script>
+</body>
+
+</html>
+
